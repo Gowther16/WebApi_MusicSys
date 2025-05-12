@@ -21,7 +21,6 @@ namespace MusicSys.Models
         public TimeSpan? Duration { get; set; }
 
         [StringLength(500)]
-        public string Lyrics { get; set; }
 
         // Foreign keys
         public int AlbumId { get; set; }

@@ -12,7 +12,7 @@ using MusicSys.Models;
 namespace MusicSys.Migrations
 {
     [DbContext(typeof(MusicDbContext))]
-    [Migration("20250512073850_DbInit")]
+    [Migration("20250512081750_DbInit")]
     partial class DbInit
     {
         /// <inheritdoc />
@@ -111,6 +111,7 @@ namespace MusicSys.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SongId"));
 
                     b.Property<int>("AlbumId")
+                        .HasMaxLength(500)
                         .HasColumnType("int");
 
                     b.Property<int>("ArtistId")
@@ -123,11 +124,6 @@ namespace MusicSys.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Lyrics")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Title")
                         .IsRequired()
